@@ -23,7 +23,7 @@ const RecaptchaForm = () => {
   };
 
   return (
-    <div className="d-flex flex-column align-items-center justify-content-center h-100 mt-4 ">
+    <div className="d-flex flex-column align-items-center h-50">
       <h1 className="mb-3">Re Captach Tutorial</h1>
       <form>
         <div className="mb-3" style={{ width: 500 }}>

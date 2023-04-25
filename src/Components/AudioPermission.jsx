@@ -1,27 +1,43 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from "react";
 
 const AudioPermission = () => {
+  const [permission, setPermission] = useState(false);
+  const [stream, setStream] = useState(null);
 
-   const getLocalStream = () => {
-    navigator.mediaDevices
-      .getUserMedia({ video: false, audio: true })
-      .then((stream) => {
-        window.localStream = stream; // A
-        window.localAudio.srcObject = stream; // B
-        window.localAudio.autoplay = true; // C
-      })
-      .catch((err) => {
-        console.error(`you got an error: ${err}`);
-      });
-  }
-
-  useEffect(() => {
-    getLocalStream();
-  })
+  // function takes audio permission by checking the getUsermedia api returns 
+  // mediaStream object
+  const getMicrophonePermission = async () => {
+    if ("MediaRecorder" in window) {
+      try {
+        const streamData = await navigator.mediaDevices.getUserMedia({
+          audio: true,
+          video: false,
+        });
+        setPermission(true);
+        setStream(streamData);
+      } catch (err) {
+        alert(err.message);
+      }
+    } else {
+      alert("The MediaRecorder API is not supported in your browser.");
+    }
+  };
 
   return (
-    <div>AudioPermission : True</div>
-  )
-}
+    <div>
+      <h2>Audio Recorder</h2>
+      <main>
+        <div className="audio-controls">
+          {!permission ? (
+            <button onClick={getMicrophonePermission} type="button">
+              Get Microphone
+            </button>
+          ) : null}
+          {permission ? <button type="button">Record</button> : null}
+        </div>
+      </main>
+    </div>
+  );
+};
 
-export default AudioPermission
+export default AudioPermission;
