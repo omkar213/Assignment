@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useRef } from "react";
 
 // media type sent along with the file indicating the type of data
-const mimeType = "video/webm";
+const mimeType = "video/mp4";
 
 const VideoRecorder = () => {
   const [permission, setPermission] = useState(false);
