@@ -60,6 +60,7 @@ const VideoRecorder = () => {
       localVideoChunks.push(event.data);
     };
     setVideoChunks(localVideoChunks);
+    setTimeout(stopRecording, 10000)
   };
 
   const stopRecording = () => {
@@ -75,22 +76,22 @@ const VideoRecorder = () => {
   };
 
   return (
-    <div>
+    <div className="">
       <h2>Video Recorder</h2>
       <main>
         <div className="video-controls">
           {!permission ? (
-            <button onClick={getCameraPermission} type="button">
+            <button className="btn1" onClick={getCameraPermission} type="button">
               Get Camera
             </button>
           ) : null}
           {permission && recordingStatus === "inactive" ? (
-            <button onClick={startRecording} type="button">
+            <button className="btn1" onClick={startRecording} type="button">
               Start Recording
             </button>
           ) : null}
           {recordingStatus === "recording" ? (
-            <button onClick={stopRecording} type="button">
+            <button className="btn1" onClick={stopRecording} type="button">
               Stop Recording
             </button>
           ) : null}
@@ -104,7 +105,7 @@ const VideoRecorder = () => {
         {recordedVideo ? (
           <div className="recorded-player">
             <video className="recorded" src={recordedVideo} controls></video>
-            <a download href={recordedVideo}>
+            <a download href={recordedVideo} className="btn1">
               Download Recording
             </a>
           </div>

@@ -12,44 +12,121 @@ code {
     monospace;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: start;
-  min-width: 320px;
-  min-height: 100vh;
+/* card back = #181B21
+   page back = #4A4D53
+   btn back = #2F50FF
+   btn2 outline = #192E1C
+   btn2 bacl = #192E1C
+*/
+
+:root {
+  --card-background-color: #181b21;
+  --page-background-color: #4a4d53;
+  --btn1-background-color: #2f50ff;
+  --btn2-outline: #192e1c;
+  --btn2-background-color: #713dbc;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--page-background-color);
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1rem;
+  gap: 5rem;
+}
+/* recaptcha form css */
+.recaptcha{
+  margin-top: 10px;
+}
+.form-container {
+  background-color: var(--card-background-color);
+  display: block;
+  padding: 1rem;
+  width: 350px;
+  border-radius: 0.5rem;
+  color: white;
+  margin-bottom: 10px;
+}
+.location-container {
+  background-color: var(--card-background-color);
+  display: block;
+  padding: 1rem;
+  width: 350px;
+  border-radius: 0.5rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  padding: 0.75rem 1.25rem 0.75rem 1.25rem;
+  background-color: #4f46e5;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.heading {
+  color: white;
+}
+.warning-text {
+  color: rgb(0, 255, 21);
+}
+.form-div {
+  color: white;
+}
+/* end */
+
+/* audio and video component section css */
+.recorder-container{
+  background-color: var(--card-background-color);
+  padding: 1rem;
+  width: 460px;
+  border-radius: 0.5rem;
+  color: white;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
 .button-flex {
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 10px;
+  flex-direction: row;
 }
-.audio-controls,
-.video-controls {
-  margin-bottom: 20px;
+.btn1 {
+  background-color: var(--btn1-background-color);
+  height: 45px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 2.5px solid #e0e1e4;
+  cursor: pointer;
+  min-width: 120px;
+  color: white;
 }
-.audio-player,
-.video-player {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.audio-player,
-.video-player,
-.recorded-player {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.live-player {
-  height: 200px;
-  width: 400px;
-  border: 1px solid #646cff;
-  margin-bottom: 30px;
-}
-.recorded-player video {
-  height: 400px;
-  width: 800px;
+.btn2 {
+  background-color: var(--btn2-background-color);
+  height: 45px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 2.5px solid #e0e1e4;
+  cursor: pointer;
+  min-width: 120px;
+  color: white;
 }

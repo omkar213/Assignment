@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const AudioPermission = () => {
   const [permission, setPermission] = useState(false);
-  const [stream, setStream] = useState(null);
+  // const [stream, setStream] = useState(null);
 
-  // function takes audio permission by checking the getUsermedia api returns 
+  // function takes audio permission by checking the getUsermedia api returns
   // mediaStream object
   const getMicrophonePermission = async () => {
     if ("MediaRecorder" in window) {
@@ -14,7 +14,7 @@ const AudioPermission = () => {
           video: false,
         });
         setPermission(true);
-        setStream(streamData);
+        // setStream(streamData);
       } catch (err) {
         alert(err.message);
       }
@@ -23,17 +23,28 @@ const AudioPermission = () => {
     }
   };
 
+  useEffect(() => {
+    navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+    .then(() => setPermission(true))
+    .catch(() => setPermission(false));
+  },[])
+
   return (
     <div>
       <h2>Audio Recorder</h2>
       <main>
         <div className="audio-controls">
-          {!permission ? (
-            <button onClick={getMicrophonePermission} type="button">
-              Get Microphone
+          {permission ? (
+            <p style={{color: "rgb(0, 255, 21)"}}>Microphone permission granted</p>
+            ) : (
+              <button
+              className="btn2"
+              onClick={getMicrophonePermission}
+              type="button"
+              >
+              Allow Microphone
             </button>
-          ) : null}
-          {permission ? <button type="button">Record</button> : null}
+          )}
         </div>
       </main>
     </div>

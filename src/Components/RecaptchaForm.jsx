@@ -23,11 +23,19 @@ const RecaptchaForm = () => {
   };
 
   return (
-    <div className="d-flex flex-column align-items-center h-50">
-      <h1 className="mb-3">Re Captach Tutorial</h1>
-      <form>
-        <div className="mb-3" style={{ width: 500 }}>
-          <label htmlFor="exampleInputEmail1" className="form-label">
+    <div className="recaptcha-container">
+      <form className="form-container">
+      <h1 className="heading">Re Captach</h1>
+        <div className="form-div">
+          <label htmlFor="name" className="">
+            Name
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="nameinput"
+          />
+          <label htmlFor="email" className="">
             Email address
           </label>
           <input
@@ -38,15 +46,16 @@ const RecaptchaForm = () => {
             value={email}
             onChange={handleInputchange}
           />
-           {!emailValid && <p className="text-danger">Please enter a valid email address</p>}
+           {!emailValid && <p className="warning-text">Please enter a valid email address</p>}
         </div>
         <ReCAPTCHA
           sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_TEST_KEY}
           onChange={recaptchaChange}
+          className="recaptcha"
         />
         <button
           type="submit"
-          className="btn btn-primary mt-3"
+          className="submit-btn"
           disabled={!verify}
         >
           Submit

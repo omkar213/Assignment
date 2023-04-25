@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {TbWorldLatitude, TbWorldLongitude} from 'react-icons/tb'
 
 const Location = () => {
   const [currentLoc, setCurretLoc] = useState({});
@@ -16,13 +17,13 @@ const Location = () => {
 
   useEffect(() => {
     getGeoLocation();
-  })
+  },[])
 
   return (
-  <div>
+  <div className="location-container">
     <h2>Current Location</h2>
-    <p>latitude: {currentLoc.latitude}</p>
-    <p>longitude: {currentLoc.longitude}</p>
+    <p><TbWorldLatitude size={18}/> Latitude: {currentLoc.latitude}</p>
+    <p><TbWorldLongitude size={18}/> Longitude: {currentLoc.longitude}</p>
   </div>);
 };
 

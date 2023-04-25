@@ -14,20 +14,23 @@ function App() {
     };
   };
   return (
-    <>
-      <RecaptchaForm />
-      <Location />
-      <div>
+    <div className="App">
+      <div className="main-container">
+        <RecaptchaForm />
+        <Location />
+      </div>
+
+      <div className="recorder-container">
         <h1>React Media Recorder</h1>
         <div className="button-flex">
-          <button onClick={toggleRecordOption("video")}>Record Video</button>
-          <button onClick={toggleRecordOption("audio")}>Record Audio</button>
+          <button className="btn1" onClick={toggleRecordOption("video")}>Record Video</button>
+          <button className="btn2" onClick={toggleRecordOption("audio")}>Allow Audio</button>
         </div>
         <div>
           {recordOption === "video" ? <VideoRecorder /> : <AudioPermission />}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
