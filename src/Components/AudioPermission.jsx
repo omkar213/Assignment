@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 const AudioPermission = () => {
   const [permission, setPermission] = useState(false);
-  // const [stream, setStream] = useState(null);
 
   // function takes audio permission by checking the getUsermedia api returns
   // mediaStream object
