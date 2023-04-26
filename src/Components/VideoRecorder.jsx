@@ -76,10 +76,10 @@ const VideoRecorder = () => {
   };
 
   return (
-    <div className="">
+    <div  className="video-controls">
       <h2>Video Recorder</h2>
       <main>
-        <div className="video-controls">
+        <div>
           {!permission ? (
             <button className="btn1" onClick={getCameraPermission} type="button">
               Get Camera

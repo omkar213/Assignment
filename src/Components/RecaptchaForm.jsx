@@ -25,7 +25,7 @@ const RecaptchaForm = () => {
   return (
     <div className="recaptcha-container">
       <form className="form-container">
-      <h1 className="heading">Re Captach</h1>
+      <h1 className="heading">ReCaptach Form</h1>
         <div className="form-div">
           <label htmlFor="name" className="">
             Name
@@ -36,7 +36,7 @@ const RecaptchaForm = () => {
             id="nameinput"
           />
           <label htmlFor="email" className="">
-            Email address
+            Email
           </label>
           <input
             type="email"

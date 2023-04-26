@@ -130,6 +130,13 @@ body {
   min-width: 120px;
   color: white;
 }
+.video-controls{
+  width: 450px;
+}
+.video-player{
+  width: 440px;
+  height: auto;
+}
 
 @media only screen and (max-width: 600px) {
   .main-container {
